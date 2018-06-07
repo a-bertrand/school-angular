@@ -1,0 +1,34 @@
+<h2>My Stuffes</h2>
+<div class="generic_form form_addStuff" >
+  <label>Stuff Name:        </label>        <input #StuffName         placeholder="Name"         />
+  <label>Stuff Description: </label>        <input #StuffDescription  placeholder="Description"  />
+  <label>Modificateur: </label>      <input #StuffDescription  placeholder="Description"  />
+  <label>Valeur de la  Modificateur: </label>    <input #StuffDescription  placeholder="Description"  />
+  <button (click)="add( StuffName.value, StuffDescription.value)"> 
+    Add 
+  </button>
+</div>
+
+<table class="table table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let stuff of stuffes" (click)="onSelect(Stuff)"
+      [class.selected]="Stuff === selectedStuff">
+    <td>{{stuff.id}}</td>
+    <td>{{stuff.name}}</td>
+    <td>{{stuff.description}} // {{stuff.name_modif}} {{stuff.value_modif}} </td>
+    <td><button class="delete"
+      (click)="delete(stuff); $event.stopPropagation()">x</button></td>
+  </tr>
+</table>
+
+<div *ngIf="selectedStuff">
+  <h2>
+    {{selectedStuff.name | uppercase}} is my Stuff
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

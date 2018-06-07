@@ -41,6 +41,7 @@ footer
 }
 .main_content
 {
+    margin-top: 100px;
     margin-bottom: 50px;
     background-color: rgba(240,240,240,0.6) !important;
     padding: 1%;
@@ -51,7 +52,7 @@ footer
     color: black;
     width: 30px;
 }
-.layout_nav_registerbox
+layout_nav_registerbox
 {
     float   :right;
     width   :20%;
@@ -73,7 +74,7 @@ footer
 
 .generic_form label
 {
-    width: 150px;
+    width: 100px;
 }
 .generic_form input
 {
@@ -146,18 +147,4 @@ hr{margin : 0px !important;}
 {
 	margin-left: auto !important;
 	margin-right: auto !important;
-}
-
-.d3-chart {
-  width: 100%;
-  height: 400px;
-}
- 
-.d3-chart .axis path,
-.d3-chart .axis line {
-  stroke: #999;
-}
- 
-.d3-chart .axis text {
-  fill: #999;
 }

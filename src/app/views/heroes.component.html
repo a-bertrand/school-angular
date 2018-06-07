@@ -1,0 +1,78 @@
+<style type="text/css">
+  
+    .error_alert
+    {
+      background-color: red;
+      width : 100%;
+      height: 20px;
+    }
+    .allisok_alert
+    {
+      background-color: green;‡
+      width : 100%;
+      height: 20px;
+    }
+    .button_generate
+    {
+      margin-bottom: 10px;
+    }
+    .hero_box
+    {
+      border: 1px black solid;
+      height: 200px;
+      margin-bottom: 20px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+    .svg_box
+    {
+      position:absolute;
+      top:0;
+      left:100px;
+    }
+</style>
+
+<h2>My Heroes</h2>
+<button (click)="new_hero()">Nouveau Héros</button>
+
+<div *ngIf="newhero">
+  <div class="generic_form form_addhero row" *ngIf="fill_hero">
+
+    <div *ngIf="error_toomuch" class="error_alert"> Too much points allowed ! </div>
+    <div *ngIf="allisok" class="allisok_alert"> All points are  allowed ! Tou can now add your heros </div>
+    <div *ngIf="error_notenough" class="error_alert"> Not enough points are  allowed ! </div> <br>
+    <button class="button_generate" (click)="autofillinput()" > Generate Random</button> <br>
+    <label>Available point skills : </label> <input  value={{number_point}} readonly/> 
+    <label>Hero name:               </label> <input #heroName                   placeholder="Name"         min=0 max=20 value={{fill_hero[0]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
+    <label>Hero Attack: </label>    <input #heroAtck    type="number"  placeholder="Attack"       min=0 max=20 value={{fill_hero[1]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
+    <label>Hero Damage:  </label>   <input #heroDamage  type="number"  placeholder="Damage"       min=0 max=20 value={{fill_hero[2]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
+    <label>Hero Hp:     </label>    <input #heroHp      type="number"  placeholder="Hearth point" min=0 max=20 value={{fill_hero[3]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
+    <label>Hero Dodge:  </label>    <input #heroDodge   type="number"  placeholder="Dodge"        min=0 max=20 value={{fill_hero[4]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
+    <!--  add(name: string,attack   : number, defense   : number, damage   : number, hp    :  number,  dodge    :  number ):  -->
+    <button (click)="add( heroName.value, heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"> 
+      Add heros
+    </button>
+  </div>
+</div>
+<br>
+<hr><br>
+  <div class="row">
+    <div class="col-md-4 hero_box" *ngFor="let hero of heroes" (click)="onSelect(hero)" 
+        [class.selected]="hero === selectedHero"> 
+        <button class="delete" (click)="delete(hero); $event.stopPropagation()">x</button>
+        Name   : {{hero.name}}     <br>
+        {{ draw(hero)}}
+          <div class="col-md-5">
+            HP     : {{hero.hp}}       <br> 
+            Atk    : {{hero.attack}}   <br>
+            Damage : {{hero.damage}}   <br>
+            Dodge  : {{hero.dodge}}    <br>
+          </div>
+          <div class="col-md-7 svg_box" id="bar-{{hero.id}}">
+
+          </div>
+    </div>
+  </div>    
+<div *ngIf="selectedHero">
+  <my-hero-detail [hero]="selectedHero" ></my-hero-detail>
+</div>

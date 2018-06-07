@@ -1,0 +1,47 @@
+<style>
+	.Box_information
+	{
+		border: 1px solid black;
+		height:620px; 
+	}
+	.Box_game
+	{
+		border: 1px solid black;
+		height:620px;
+	}
+</style>
+<div *ngIf="step0" >
+ <h2><button (click)="startgame()"> START NEW GAME</button></h2>
+</div>
+<!-- ============================== -->
+<!-- ============================== -->
+<div *ngIf="step1" >
+  <h2>1 - Choisir un Héros </h2> 
+  <my-heroes></my-heroes>
+  <button (click)="choose_heros()"> Choisir Héros </button>
+</div>
+<!-- ============================== -->
+<!-- ============================== -->
+<div *ngIf="step2" >
+  <h2>2 - Choisir un Niveau </h2>
+  <my-list-map></my-list-map>
+  <button (click)="choose_map()"> Choisir Carte </button>
+</div>
+<!-- ============================== -->
+<!-- ============================== -->
+<div *ngIf="step3" >
+  <h2>3 - Jouer </h2>
+  <div>
+  		<div class="col-md-4 Box_information">
+  			Player Name : {{chosen_hero.name}}
+  			HP : {{chosen_hero.hp}}
+  			Stuff : 
+  			<div class="Box_information_stuff">
+          <div id="player_information_hp">
+          </div>     
+  			</div>
+  		</div>
+  		<div id="box_map" class="col-md-8 Box_game">
+  		</div>
+  </div>
+</div>

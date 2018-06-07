@@ -1,0 +1,10 @@
+<table class="table table-hover">
+  <tr>
+    <th>map Id</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let map of list_map" (click)="onSelect(map.id)" >
+    <td>{{map.id}}</td>
+    <td>{{map.description}}</td>
+  </tr>
+</table>

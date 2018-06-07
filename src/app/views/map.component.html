@@ -1,0 +1,36 @@
+<style type="text/css">
+	.map_case
+	{
+
+	}
+	#map
+	{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+	#map svg 
+	{
+				border: 1px solid black;
+	}
+</style>
+<h2>My Map</h2>
+<div>
+  <button (click)="draw_map('#map',10)" >Small  size: 10 x 10 </button>
+  <button (click)="draw_map('#map',15)" >Middle size: 15 x 15 </button>
+  <button (click)="draw_map('#map',20)" >Large  size: 20 x 20 </button>
+</div>
+<div *ngIf="new_map">
+	<label>Description de la map : </label><input #mapDescription >
+	<button (click)="save(mapDescription.value)">Save MAP</button>
+	<img width="60" height="60" src="./../image/grass.jpeg"			(click)="update_element(1)"   >
+	<img width="60" height="60" src="./../image/wall.jpeg"			(click)="update_element(2)" 	>
+	<img width="60" height="60" src="./../image/cthulhu_icon.png" 	(click)="update_element(3)" 	>
+	<img width="60" height="60" src="./../image/player.jpeg" 		(click)="update_element(4)" 	>
+</div>
+<div id="map">
+</div>
+
+
+

@@ -1,3 +1,9 @@
-<h1>
-  {{title}}
-</h1>
+<h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/dashboard"  routerLinkActive="active">Dashboard</a>
+    <a routerLink="/heroes" 	routerLinkActive="active">Heroes</a>
+    <a routerLink="/stuffes" 		routerLinkActive="active">Stuff</a>
+    <a routerLink="/map" 		routerLinkActive="active">Map</a>
+  	<a routerLink="/game" 		routerLinkActive="active">Start new game</a>
+  </nav>
+  <router-outlet></router-outlet >

@@ -1,0 +1,16 @@
+<div *ngIf="stuff">
+  	<h2>{{stuff.name}} details!</h2>
+    <div>
+	    <label>id: </label>{{stuff.id}}
+	  	<div class="form-group">
+	   		<label>Stuff Name: 		</label>	
+	   		<input [(ngModel)]="stuff.name" 		placeholder="Name" />
+	   	</div>
+	   	<div class="form-group">	
+	    	<label>Stuff Description: </label>    
+	    	<input [(ngModel)]="stuff.attack"  		placeholder="Description"/>
+	    </div>
+    </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>

@@ -1,0 +1,57 @@
+<style type="text/css">
+/* COPIER CODE DANS LE CSSS*/
+	.form_heros label
+	{
+		width : 11em;
+		margin-left: 10%;
+	}
+	    .error_alert
+    {
+      background-color: red;
+      width : 100%;
+      height: 20px;
+    }
+    .allisok_alert
+    {
+      background-color: green;‡
+      width : 100%;
+      height: 20px;
+    }
+</style>
+<div class="row">
+	<div class="col-md-4 form_heros" *ngIf="hero" > 
+	  	<h2>{{hero.name}} details!</h2>
+	  	<div *ngIf="error_toomuch" class="error_alert"> Too much points allowed ! </div>
+    	<div *ngIf="allisok" class="allisok_alert"> All points are  allowed ! Tou can now add your heros </div>
+    	<div *ngIf="error_notenough" class="error_alert"> Not enough points are  allowed ! </div>
+	    <div class="form-horizontal" ng-if="draw(hero)">
+	    	<div class="form-group">
+		    	<label>Available point skills :</label> <input  value={{number_point}} readonly/>
+		    </div>
+		  	<div class="form-group">
+		   		<label>Hero Name: 		</label>	
+		   		<input [(ngModel)]="hero.name" 	laceholder="name" />
+		   	</div>
+		   	<div class="form-group">	
+		    	<label>Hero Attack: </label>    
+		    	<input [(ngModel)]="hero.attack"	type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"	placeholder="Attack"/>
+		    </div>
+		   	<div class="form-group">	
+		  		<label>Hero Damage: </label>    
+	 	  		<input [(ngModel)]="hero.damage" 	type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"	placeholder="Damage"/>
+		  	</div>
+		   	<div class="form-group">	
+		  		<label>Hero Hp:     </label>    
+	 	  		<input [(ngModel)]="hero.hp"  		type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"	placeholder="Hearth point"/>
+		  	</div>
+		   	<div class="form-group">	
+		 		<label>Hero Dodge: </label>     
+ 		 		<input [(ngModel)]="hero.dodge"  	type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" 	placeholder="Dodge"/>
+		 	</div>
+	    </div>
+	</div>
+	<div id="barchart" class=col-md-8>
+	</div>
+</div>
+
+

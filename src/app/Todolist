@@ -1,0 +1,55 @@
+Un dashboard pour voir les héros les plus « marquants » : 
+	− afficher les détails d’un héro si l’utilisateur le souhaite 
+		-> OK
+	− rediriger vers la fen ê tre d ’ édition d ’ un héro ; 
+		-> OK
+
+Une fenêtre listant tous les héros  présents , elle permet de : 
+	− afficher les détails d’un héro si l’utilisateur le souhaite 
+		-> OK
+	− rediriger vers la fen ê tre d ’ édition d ’ un héro ; 
+		-> OK
+	− créer un nouvel héro ( redirection version la fen ê tre d ’ édition ) ; 
+		-> OK
+
+Une fenêtre listant toute s les armes disponibles , ell e permet de : 
+	− afficher les détails d’une arme  si l’utilisateur le souhaite ; 
+		-> OK
+	− rediriger vers la fen ê tre d ’ édition d ’ une arme ; 
+		-> OK
+	− créer une nouvel le arme ( redirection version la fen ê tre d ’ édition ) ; 
+		-> OK
+
+Une   fenêtre   d’édition   d’un   héro avec  répartition   de   ses points de   compétence et  association avec une arme ; 
+	-> A voir normalement arme looter sur la table. 
+
+Une fenêtre d’édition d’une arme  avec  répartition de ses points de compétence .
+	-> A voir. 
+
+Somme des stats <= 40.
+	-> en cours
+
+Pas de stats en < de 1pts.
+	-> Ok
+
+Afficher points restant à répartir.
+	-> A voir
+//*** --------------------- ***//
+//*** BONUS ***//	
+Géneration random d'un héros
+	-> Ok
+
+Visualisation "dynamique" de statistique d'un héris grâce à un graphique en Barre. 
+	-> OK 
+
+Creation d'un plateau de jeu avec ajout de visuel ( Editeur de map ) :
+	- Sauvegarde 	: En cours 
+	- Manipulation  : Ok
+	- Ajout joueur  : Ok 
+	- Ajout visuel  : OK 
+
+Gameplay : 
+	- Choisir joueur, map  et GO ! 			: Ok
+	- Combat si enemi et joueur même case 	: Ok
+	- Deplacement  							: Ok
+	- Affichage  Interface vie etc.. 		: Ok ( TODO : peut mieux faire)
