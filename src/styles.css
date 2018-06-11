@@ -5,7 +5,7 @@
 /* Layout  */
 body
 {
-	background-image: url('/image/backgroundheroe.jpeg');
+	background-image: url('/assets/image/backgroundheroe.jpeg');
     color : hsla;
     background-size: cover;
     background-attachment: fixed;

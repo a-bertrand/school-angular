@@ -16,7 +16,6 @@ import { HeroSearchService } from './../service/hero-search.service';
 import { Hero } from './../class/hero';
 
 @Component({
-  moduleId: module.id,
   selector: 'hero-search',
   templateUrl: './../views/hero-search.component.html',
   styleUrls: [ './../css/hero-search.component.css' ],

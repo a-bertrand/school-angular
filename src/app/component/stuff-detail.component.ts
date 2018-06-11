@@ -10,7 +10,6 @@ import { StuffService } 	from './../service/stuff.service';
 
 @Component(
 {
-  moduleId: module.id,
   selector: 'my-stuff-detail',
   templateUrl: './../views/stuff-detail.component.html',
   styleUrls: [ './../css/stuff-detail.component.css' ]

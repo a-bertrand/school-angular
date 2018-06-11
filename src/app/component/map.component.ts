@@ -7,7 +7,6 @@ import { Map }          from './../class/map';
 import { MapService }   from './../service/map.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-map',
   templateUrl: './../views/map.component.html',
   styleUrls: [ './../css/map.component.css' ]
@@ -58,7 +57,7 @@ export class MapComponent implements OnInit
         .attr("y", y+1)
         .attr("width",  width_case-2)
         .attr("height", width_case-2)
-        .attr("xlink:href","../image/"+element_selected+".jpeg")
+        .attr("xlink:href","/assets/image/"+element_selected+".jpeg")
     }
   }  // END OF DRAW CASE
   // ----------------------------------------
@@ -181,7 +180,7 @@ export class MapComponent implements OnInit
           .attr('width', 50)
           .attr('height', 50)  
           .on('mousedown', function(){self.mousedownQ(old_d,old_i,group,this)})
-          .attr('xlink:href', "../image/grass.jpeg" );
+          .attr('xlink:href', "/assets/image/grass.jpeg" );
           this.new_map[old_i]=[old_d[0],old_d[1],this.click_element,this.new_map[old_i][3]]
          // Update map 
       }
@@ -195,7 +194,7 @@ export class MapComponent implements OnInit
           .attr('width', 50)
           .attr('height', 50)
           .on('mousedown', function(){self.mousedownQ(old_d,old_i,group,this)})
-          .attr('xlink:href', "../image/wall.jpeg" );
+          .attr('xlink:href', "/assets/image/wall.jpeg" );
           this.new_map[old_i]=[old_d[0],old_d[1],this.click_element,this.new_map[old_i][3]]
       }
       //  Niveau 2 de la map
@@ -210,7 +209,7 @@ export class MapComponent implements OnInit
           .attr('width', 50)
           .attr('height', 50)
           .on('mousedown', function(){self.mousedownQ(old_d,old_i,group,this)})
-          .attr('xlink:href', "../image/cthulhu_icon.png" );
+          .attr('xlink:href', "/assets/image/cthulhu_icon.png" );
           this.new_map[old_i]=[old_d[0],old_d[1],this.new_map[old_i][2],1]
       }
        else if ( this.click_element == 4 ) 
@@ -224,7 +223,7 @@ export class MapComponent implements OnInit
           .attr('width', 50)
           .attr('height', 50)
           .on('mousedown', function(){self.mousedownQ(old_d,old_i,group,this)})
-          .attr('xlink:href', "../image/player.jpeg" );
+          .attr('xlink:href', "/assets/image/player.jpeg" );
           this.new_map[old_i]=[old_d[0],old_d[1],this.new_map[old_i][2],2]
       }
       console.log(this.new_map[old_i])

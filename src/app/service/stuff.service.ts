@@ -25,7 +25,7 @@ export class StuffService {
   getStuffes(): Promise<Stuff[]> {
     return this.http.get(this.stuffesUrl)
                .toPromise()
-               .then(response => response.json().data as Stuff[])
+               .then(response => response.json() as Stuff[])
                .catch(this.handleError);
   }
 
@@ -33,7 +33,7 @@ export class StuffService {
     const url = `${this.stuffesUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Stuff)
+      .then(response => response.json() as Stuff)
       .catch(this.handleError);
   }
 
@@ -51,7 +51,7 @@ export class StuffService {
     return this.http
       .post(this.stuffesUrl, {name: name, description:description, value_modif:value_modif, name_modif:name_modif}, {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data)
+      .then(res => res.json())
       
       .catch(this.handleError);
   }

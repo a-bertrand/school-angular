@@ -12,6 +12,6 @@
       {
           return this.http
            .get(`app/heroes/?name=${term}`)
-           .map(response => response.json().data as Hero[]);
+           .map(response => response.json() as Hero[]);
       }
     }

@@ -17,14 +17,14 @@ export class MapService {
     const url = `${this.mapurl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Map)
+      .then(response => response.json() as Map)
       .catch(this.handleError);
   }
   getList_Map(): Promise<Map[]> 
   {
      return this.http.get(this.mapurl)
        .toPromise()
-       .then(response => response.json().data as Map[])
+       .then(response => response.json() as Map[])
        .catch(this.handleError);
   }
   delete(id: number): Promise<void> 
@@ -43,7 +43,7 @@ export class MapService {
     return this.http
       .post(this.mapurl, {map:map_array,description:description}, {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data)
+      .then(res => res.json())
       .catch(this.handleError);
   }
 // ----------------------------------------------------------

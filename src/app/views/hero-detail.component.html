@@ -34,19 +34,19 @@
 		   	</div>
 		   	<div class="form-group">	
 		    	<label>Hero Attack: </label>    
-		    	<input [(ngModel)]="hero.attack"	type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"	placeholder="Attack"/>
+		    	<input [(ngModel)]="hero.attack"	type="number" min=0 (keyup)="onchange_save( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="onchange_save(heroAtck, heroDamage, heroHp, heroDodge)"	placeholder="Attack"/>
 		    </div>
 		   	<div class="form-group">	
 		  		<label>Hero Damage: </label>    
-	 	  		<input [(ngModel)]="hero.damage" 	type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"	placeholder="Damage"/>
+	 	  		<input [(ngModel)]="hero.damage" 	type="number" min=0 (keyup)="onchange_save( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="onchange_save(heroAtck, heroDamage, heroHp, heroDodge)"	placeholder="Damage"/>
 		  	</div>
 		   	<div class="form-group">	
 		  		<label>Hero Hp:     </label>    
-	 	  		<input [(ngModel)]="hero.hp"  		type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"	placeholder="Hearth point"/>
+	 	  		<input [(ngModel)]="hero.hp"  		type="number" min=0 (keyup)="onchange_save( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="onchange_save(heroAtck, heroDamage, heroHp, heroDodge)"	placeholder="Hearth point"/>
 		  	</div>
 		   	<div class="form-group">	
 		 		<label>Hero Dodge: </label>     
- 		 		<input [(ngModel)]="hero.dodge"  	type="number" min=0 (keyup)="onchange_save( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="onchange_save(heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" 	placeholder="Dodge"/>
+ 		 		<input [(ngModel)]="hero.dodge"  	type="number" min=0 (keyup)="onchange_save( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="onchange_save(heroAtck, heroDamage, heroHp, heroDodge)" 	placeholder="Dodge"/>
 		 	</div>
 	    </div>
 	</div>

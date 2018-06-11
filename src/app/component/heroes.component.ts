@@ -7,7 +7,6 @@ import { HeroService }   from './../service/hero.service';
 import * as d3 from "d3"; 
 
 @Component({
-  moduleId: module.id,
   selector: 'my-heroes',
   templateUrl: './../views/heroes.component.html',
   styleUrls: [ './../css/heroes.component.css' ]
@@ -121,7 +120,6 @@ export class HeroesComponent implements OnInit
     {
       this.allisok=true;
     }
-    console.log(this.allisok)
   }
   hide_error_message():void
   {
@@ -133,7 +131,6 @@ export class HeroesComponent implements OnInit
   // Draw mini bar chart 
   draw(hero): void
   {  
-    console.log('on draw',hero);
     // ------------------------------------------------------
     function generate_bar(receive_data, class_name,max_value, cur_width, cur_height)
     {

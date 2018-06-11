@@ -5,7 +5,6 @@ import { Map }          from './../class/map';
 import { MapService }   from './../service/map.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-list-map',
   templateUrl: './../views/list_map.component.html',
   styleUrls: [ './../css/list_map.component.css' ]

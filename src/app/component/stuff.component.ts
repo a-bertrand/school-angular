@@ -7,7 +7,6 @@ import { Stuff }          from './../class/stuff';
 import { StuffService }   from './../service/stuff.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-stuffes',
   templateUrl: './../views/stuff.component.html',
   styleUrls  : [ './../css/stuff.component.css' ]

@@ -13,7 +13,6 @@ import { Map }         			 from './../class/map';
 import * as d3 from "d3";  
 
 @Component({
-  moduleId: module.id,
   selector: 'my-game',
   host: {
         '(document:keydown)': 'handleKeyboardEvent($event)'
@@ -158,7 +157,7 @@ export class GameComponent implements OnInit
 				          .attr('y', y * hauteurQ )
 				          .attr('width', hauteurQ)
 				          .attr('height', hauteurQ)
-				          .attr('xlink:href', "../image/grass.jpeg" );
+				          .attr('xlink:href', "/assets/image/grass.jpeg" );
 		    		}
 		    		// mur
 		    		else if(val.map[i][2] == 2)
@@ -169,7 +168,7 @@ export class GameComponent implements OnInit
 				          .attr('y', y * hauteurQ )
 				          .attr('width', hauteurQ)
 				          .attr('height', hauteurQ)
-				          .attr('xlink:href', "../image/wall.jpeg" );
+				          .attr('xlink:href', "/assets/image/wall.jpeg" );
 		    		}
 		    		else
 		    		{
@@ -191,7 +190,7 @@ export class GameComponent implements OnInit
 				          .attr('y', y * hauteurQ )
 				          .attr('width', hauteurQ)
 				          .attr('height', hauteurQ)
-				          .attr('xlink:href', "../image/cthulhu.png" );
+				          .attr('xlink:href', "/assets/image/cthulhu.png" );
 		    		}
 		    		else if(val.map[i][3] == 2)
 		    		{
@@ -202,7 +201,7 @@ export class GameComponent implements OnInit
 				          .attr('y', y * hauteurQ )
 				          .attr('width', hauteurQ)
 				          .attr('height', hauteurQ)
-				          .attr('xlink:href', "../image/player.jpeg" );
+				          .attr('xlink:href', "/assets/image/player.jpeg" );
 		    		}
 			    }
         });
@@ -245,7 +244,7 @@ export class GameComponent implements OnInit
 			          .attr("y", new_y)
 			          .attr("width",  width_case)
 			          .attr("height", width_case)
-			          .attr("xlink:href","../image/player.jpeg")
+			          .attr("xlink:href","/assets/image/player.jpeg")
 			    this.move_monster();
 	      	}
 	      }
@@ -282,7 +281,7 @@ export class GameComponent implements OnInit
 		          .attr("y", new_y)
 		          .attr("width",  width_case)
 		          .attr("height", width_case)
-		          .attr("xlink:href","../image/cthulhu.png")
+		          .attr("xlink:href","/assets/image/cthulhu.png")
 		          console.log("prochain qui est la:",this.chosen_map.map[position_inarray_int])
 
 		    if(d3.select(".cthulhu").attr("id") === d3.select(".player").attr("id"))

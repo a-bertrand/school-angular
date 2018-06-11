@@ -16,16 +16,15 @@ export class HeroService {
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl)
                .toPromise()
-               .then(response => response.json().data as Hero[])
+               .then(response => response.json() as Hero[])
                .catch(this.handleError);
   }
-
-
+  
   getHero(id: number): Promise<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Hero)
+      .then(response => response.json() as Hero)
       .catch(this.handleError);
   }
 
@@ -33,7 +32,7 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Hero)
+      .then(response => response.json() as Hero)
       .catch(this.handleError);
   }
 
@@ -45,13 +44,13 @@ export class HeroService {
       .catch(this.handleError);
   }
 // ----------------------------------------------------------
-// Ajouter Heroe 
+// Ajouter Hero 
   create(name: string, attack: number, damage   : number, hp    :  number,  dodge    :  number): Promise<Hero> 
   {
     return this.http
       .post(this.heroesUrl, {name: name, attack:attack, damage:damage, hp:hp, dodge:dodge}, {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data)
+      .then(res => res.json())
       .catch(this.handleError);
   }
 // ----------------------------------------------------------
@@ -66,7 +65,7 @@ export class HeroService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred', error); 
     return Promise.reject(error.message || error);
   }
 }

@@ -9,7 +9,6 @@ import { HeroService }                  from './../service/hero.service';
 import * as d3 from "d3"; 
 
 @Component({
-  moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: './../views/hero-detail.component.html',
   styleUrls: [ './../css/hero-detail.component.css' ]
@@ -34,15 +33,13 @@ export class HeroDetailComponent implements OnInit {
   }
   ngOnInit(): void 
   {
-    this.route.params
+    /*this.route.params
       .switchMap((params: Params) => this.heroService.getHero(+params['id']))
-      .subscribe(hero => this.hero = hero );
-    this.route.params
-      .switchMap((params: Params) => this.heroService.getHero(+params['id']))
-      .subscribe(hero => this.draw(this.hero) );
+      .subscribe(hero => this.hero = hero );*/
+
       if(this.hero != null)
       {
-        this.draw(this.hero)
+        //this.draw(this.hero)
       }
   }
   save(): void {
@@ -51,7 +48,6 @@ export class HeroDetailComponent implements OnInit {
   }
   onchange_save(attack, damage, hp, dodge)
   {
-    console.log("onchange_save")
     this.update_nbpoint(attack, damage, hp, dodge);
     this.draw(this.hero);
   }
@@ -92,6 +88,29 @@ export class HeroDetailComponent implements OnInit {
   draw(hero): void
   {  
     // ------------------------------------------------------
+    // ---- Generate formated data 
+    // Format data : 
+    //     name : Stat   //    value : valeur de la stat
+    d3.select('#data-information').remove();
+    var data = [];
+    var i = 0;
+    for (var el in this.hero)
+    {
+      if(el=="id")
+      { /* NOTHING */ }
+      else if (el == "name")
+      { /* NOTHING */}
+      else
+      {
+        data[i]= {"label":el.toUpperCase(),"value":this.hero[el]}; 
+        i++;  
+      }    
+    }
+    // ------------------------------------------------------
+    var width  = window.getComputedStyle(document.getElementById("barchart")).getPropertyValue("width");
+    var height = "400px"; 
+    generate_bar(data,"#barchart",20,width.replace("px",""),height.replace("px",""));
+    // ------------------------------------------------------
     function generate_bar(receive_data, class_name,max_value, cur_width, cur_height)
     {
          cur_width  = parseInt(cur_width) ;
@@ -109,6 +128,7 @@ export class HeroDetailComponent implements OnInit {
                   .range([height, 0]);
                   
         var svg = d3.select(class_name).append("svg")
+                      .attr('id','data-information')
                       .attr("width", width + margin.left + margin.right)
                       .attr("height", height + margin.top + margin.bottom)
                       .append("g")
@@ -143,31 +163,6 @@ export class HeroDetailComponent implements OnInit {
         svg.append("g")
             .call(d3.axisLeft(y));
     }
-    // ------------------------------------------------------
-    // ---- Generate formated data 
-    // Format data : 
-    //     name : Stat   //    value : valeur de la stat
-    d3.select('svg').remove();
-    var data = [];
-    var i = 0;
-    for (var el in this.hero)
-    {
-      if(el=="id")
-      { /* NOTHING */ }
-      else if (el == "name")
-      { /* NOTHING */}
-      else
-      {
-        data[i]= {"label":el.toUpperCase(),"value":this.hero[el]}; 
-        i++;  
-      }    
-    }
-    // ------------------------------------------------------
-    // generate_bar(receive_data, class_name,max_value,width,height))
-    var width  = window.getComputedStyle(document.getElementById("barchart")).getPropertyValue("width");
-    var height = "400px"; 
-    generate_bar(data,"#barchart",20,width.replace("px",""),height.replace("px",""));
-
   }// End of draw
 } 
 

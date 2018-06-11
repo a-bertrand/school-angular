@@ -43,13 +43,13 @@
     <div *ngIf="error_notenough" class="error_alert"> Not enough points are  allowed ! </div> <br>
     <button class="button_generate" (click)="autofillinput()" > Generate Random</button> <br>
     <label>Available point skills : </label> <input  value={{number_point}} readonly/> 
-    <label>Hero name:               </label> <input #heroName                   placeholder="Name"         min=0 max=20 value={{fill_hero[0]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
-    <label>Hero Attack: </label>    <input #heroAtck    type="number"  placeholder="Attack"       min=0 max=20 value={{fill_hero[1]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
-    <label>Hero Damage:  </label>   <input #heroDamage  type="number"  placeholder="Damage"       min=0 max=20 value={{fill_hero[2]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
-    <label>Hero Hp:     </label>    <input #heroHp      type="number"  placeholder="Hearth point" min=0 max=20 value={{fill_hero[3]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
-    <label>Hero Dodge:  </label>    <input #heroDodge   type="number"  placeholder="Dodge"        min=0 max=20 value={{fill_hero[4]}} (keyup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)" (mouseup)="update_nbpoint( heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"/>
+    <label>Hero name:               </label> <input #heroName                   placeholder="Name"         min=0 max=20 value={{fill_hero[0]}} (keyup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)"/>
+    <label>Hero Attack: </label>    <input #heroAtck    type="number"  placeholder="Attack"       min=0 max=20 value={{fill_hero[1]}} (keyup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)"/>
+    <label>Hero Damage:  </label>   <input #heroDamage  type="number"  placeholder="Damage"       min=0 max=20 value={{fill_hero[2]}} (keyup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)"/>
+    <label>Hero Hp:     </label>    <input #heroHp      type="number"  placeholder="Hearth point" min=0 max=20 value={{fill_hero[3]}} (keyup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)"/>
+    <label>Hero Dodge:  </label>    <input #heroDodge   type="number"  placeholder="Dodge"        min=0 max=20 value={{fill_hero[4]}} (keyup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)" (mouseup)="update_nbpoint( heroAtck, heroDamage, heroHp, heroDodge)"/>
     <!--  add(name: string,attack   : number, defense   : number, damage   : number, hp    :  number,  dodge    :  number ):  -->
-    <button (click)="add( heroName.value, heroAtck.value, heroDamage.value, heroHp.value, heroDodge.value)"> 
+    <button (click)="add( heroName, heroAtck, heroDamage, heroHp, heroDodge)"> 
       Add heros
     </button>
   </div>
