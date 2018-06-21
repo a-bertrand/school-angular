@@ -38,7 +38,6 @@ export class GameComponent implements OnInit
 	handleKeyboardEvent(event) 
 	{ 
 	    event.stopPropagation();
-	    console.log(event)
 	    var key = "";
 	    if      (event.key =="ArrowLeft")  { key = "left";   this.move_char(key);  }
 	    else if (event.key =="ArrowUp")    { key = "top";    this.move_char(key);  }
@@ -55,6 +54,14 @@ export class GameComponent implements OnInit
 	{
 		this.step1 =true;
 		this.step0=false;
+	}
+	endless_move_monster()
+	{
+		//console.log('coucou')
+		setInterval(()=>{    //<<<---    using ()=> syntax
+		      this.move_monster()
+		 }, 800);
+		
 	}
 	//----//----//----//----//----//----//----//----//----//----//----//----//----//----
 	choose_heros()
@@ -107,7 +114,6 @@ export class GameComponent implements OnInit
  		get_map.then
  		(function(val) 
 	 		{
-	 			console.log(d3.select('#player_information_hp'))
 				new_this.init_payer_information()
  				new_this.update_payer_information();
 	 			new_this.chosen_map = val;  // sauvegarde de la map choisi
@@ -133,7 +139,7 @@ export class GameComponent implements OnInit
 			    var height = taille*hauteurQ + 20;
 			    var nclick = 0;
 			    var color =['white','blue','green'];
-	            console.log(val.map)
+
 	            var group = graph.append('g')
 			      .attr('id', 'map')
 			      .style('stroke','black')
@@ -205,6 +211,7 @@ export class GameComponent implements OnInit
 		    		}
 			    }
         });
+       	this.endless_move_monster() 
  	} 
  	// Interaction
  	//----//----//----//----//----//----//----//----//----//----//----//----//----//----
@@ -232,7 +239,7 @@ export class GameComponent implements OnInit
 	      	if (this.chosen_map.map[position_inarray_int][2]==2 || this.chosen_map.map[position_inarray_int] == null  )
       		{ 
       			// DO NOTHING 
-      			console.log(" mouvement stoppé car : ",this.chosen_map.map[position_inarray_int][2],this.chosen_map.map[position_inarray_int] )
+      			// console.log(" mouvement stoppé car : ",this.chosen_map.map[position_inarray_int][2],this.chosen_map.map[position_inarray_int] )
       		}
 	      	else 
 	      	{
@@ -245,7 +252,6 @@ export class GameComponent implements OnInit
 			          .attr("width",  width_case)
 			          .attr("height", width_case)
 			          .attr("xlink:href","/assets/image/player.jpeg")
-			    this.move_monster();
 	      	}
 	      }
     }
@@ -320,5 +326,15 @@ export class GameComponent implements OnInit
 	    		.attr('width',this.chosen_hero.hp*20)
 	    		.attr('height',20)
 	    		.style('fill', "red")
+    }
+    pathfinding()
+    {
+    	var char_xy_id = d3.select(".player").attr("id").split("/");
+      	var char_pos_x = parseInt(xy_id[0]);
+      	var char_pos_y = parseInt(xy_id[1]);
+
+		var monster_xy_id = d3.select(".cthulhu").attr("id").split("/");
+	  	var monster_post_x = parseInt(xy_id[0]);
+	  	var monster_post_y = parseInt(xy_id[1]);
     }
 }
